@@ -1,0 +1,199 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/mainhud.gd" type="Script" id=1]
+[ext_resource path="res://font/main.font" type="BitmapFont" id=2]
+[ext_resource path="res://scenes/hud/drawhelper.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "LetsGo"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Main"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 2.8, 2.9, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1.5, 0.5 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.5, 0.5 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 2.8, 2.9, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 128, 128 ), Vector2( 128, 144 ), Vector2( 224, 128 ), Vector2( 224, 128 ), Vector2( 128, 144 ), Vector2( 128, 128 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("DrawHelper:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("StageTime:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Score:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("EggCount:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("EnemyCount:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="MainHUD" type="CanvasLayer"]
+layer = 128
+script = ExtResource( 1 )
+
+[node name="DrawHelper" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="StageTime" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.0
+margin_top = 8.0
+margin_right = 48.0
+margin_bottom = 56.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 48, 0 )
+custom_fonts/font = ExtResource( 2 )
+text = "120"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animator" type="AnimationPlayer" parent="StageTime"]
+anims/LetsGo = SubResource( 1 )
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -288.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 2 )
+text = "00000000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EggCount" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -960.0
+margin_top = 96.0
+margin_right = -704.0
+margin_bottom = 144.0
+custom_fonts/font = ExtResource( 2 )
+text = "00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyCount" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -848.0
+margin_top = 96.0
+margin_right = -592.0
+margin_bottom = 144.0
+custom_fonts/font = ExtResource( 2 )
+text = "00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelMission" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 128.0
+margin_top = 128.0
+margin_right = 704.0
+margin_bottom = 176.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+custom_fonts/font = ExtResource( 2 )
+text = "defeat 32 enemies!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animator" type="AnimationPlayer" parent="LevelMission"]
+autoplay = "Main"
+anims/Main = SubResource( 2 )
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+autoplay = "Fade"
+anims/Fade = SubResource( 3 )

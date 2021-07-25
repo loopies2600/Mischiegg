@@ -1,0 +1,621 @@
+[gd_scene load_steps=57 format=2]
+
+[ext_resource path="res://sprites/tango/shadow.tres" type="Texture" id=1]
+[ext_resource path="res://sprites/stage/stuff/humberto.png" type="Texture" id=2]
+[ext_resource path="res://scenes/stage/tilestrip.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/boundaries.gd" type="Script" id=4]
+[ext_resource path="res://scripts/stage.gd" type="Script" id=5]
+[ext_resource path="res://sprites/stage/sky.png" type="Texture" id=6]
+[ext_resource path="res://sprites/stage/stuff/stuff_tile1.png" type="Texture" id=7]
+[ext_resource path="res://sprites/stage/stuff/stuff_cw.png" type="Texture" id=8]
+[ext_resource path="res://sprites/stage/stuff/stuff_bdgr.png" type="Texture" id=9]
+[ext_resource path="res://sprites/stage/ngface1.png" type="Texture" id=10]
+[ext_resource path="res://scenes/lebipi.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/guau.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/tango.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/sneki.tscn" type="PackedScene" id=14]
+[ext_resource path="res://sprites/stage/stuff/antguy1.png" type="Texture" id=15]
+[ext_resource path="res://sprites/stage/stuff/antguy2.png" type="Texture" id=16]
+[ext_resource path="res://streams/music/stage.ogg" type="AudioStream" id=17]
+[ext_resource path="res://scripts/stagemusic.gd" type="Script" id=18]
+[ext_resource path="res://sprites/stage/ngface2.png" type="Texture" id=19]
+[ext_resource path="res://scenes/arcilla.tscn" type="PackedScene" id=20]
+[ext_resource path="res://sprites/stage/kumbiaart.png" type="Texture" id=21]
+[ext_resource path="res://scenes/stage/kumbiaatlas.tres" type="Texture" id=22]
+[ext_resource path="res://sprites/stage/stuff/nghq.png" type="Texture" id=23]
+[ext_resource path="res://sprites/stage/stuff/srpb.png" type="Texture" id=24]
+[ext_resource path="res://sprites/stage/stuff/animsign3.png" type="Texture" id=25]
+[ext_resource path="res://sprites/stage/stuff/animsign5.png" type="Texture" id=26]
+[ext_resource path="res://sprites/stage/stuff/animsign4.png" type="Texture" id=27]
+[ext_resource path="res://sprites/stage/stuff/animsign2.png" type="Texture" id=28]
+[ext_resource path="res://sprites/stage/stuff/animsign1.png" type="Texture" id=29]
+[ext_resource path="res://sprites/stage/stuff/animsign6.png" type="Texture" id=30]
+[ext_resource path="res://scenes/sofi.tscn" type="PackedScene" id=31]
+[ext_resource path="res://sprites/stage/stuff/culos.png" type="Texture" id=32]
+[ext_resource path="res://sprites/stage/stuff/cah.png" type="Texture" id=33]
+[ext_resource path="res://scripts/zindex.gd" type="Script" id=34]
+[ext_resource path="res://sprites/stage/stuff/lp.png" type="Texture" id=35]
+[ext_resource path="res://sprites/stage/stuff/papa.png" type="Texture" id=36]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 512, 128 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 256 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 256 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 512, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 21 )
+region = Rect2( 109, 213, 253, 355 )
+
+[sub_resource type="AnimatedTexture" id=6]
+frames = 2
+frame_0/texture = ExtResource( 15 )
+frame_1/texture = ExtResource( 16 )
+frame_1/delay_sec = 0.0
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 21 )
+region = Rect2( 530, 393, 147, 181 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 21 )
+region = Rect2( 917, 413, 61, 94 )
+
+[sub_resource type="AnimatedTexture" id=9]
+frames = 6
+fps = 8.0
+frame_0/texture = ExtResource( 29 )
+frame_1/texture = ExtResource( 28 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 25 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 27 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 26 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 30 )
+frame_5/delay_sec = 0.0
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 21 )
+region = Rect2( 701, 195, 173, 173 )
+
+[sub_resource type="AnimatedTexture" id=11]
+frames = 6
+fps = 8.0
+frame_0/texture = ExtResource( 28 )
+frame_1/texture = ExtResource( 25 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 27 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 26 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 30 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 29 )
+frame_5/delay_sec = 0.0
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 21 )
+region = Rect2( 530, 393, 147, 181 )
+
+[sub_resource type="Animation" id=12]
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Overlay/Overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Overlay/Overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Overlay/Overlay:color")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "invertColors"
+}, {
+"args": [ false ],
+"method": "invertColors"
+} ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("StageTransform:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 32 ), Vector2( 0, -32 ), Vector2( 0, 16 ), Vector2( 0, -16 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("StageTransform:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 32, 0 ), Vector2( -32, 0 ), Vector2( 16, 0 ), Vector2( -16, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=17]
+blend_mode = 1
+
+[sub_resource type="AnimatedTexture" id=18]
+frames = 2
+frame_0/texture = ExtResource( 10 )
+frame_1/texture = ExtResource( 19 )
+frame_1/delay_sec = 0.0
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 128, 8 )
+
+[node name="CityStage" type="Node"]
+script = ExtResource( 5 )
+
+[node name="Boundaries" type="StaticBody2D" parent="."]
+collision_layer = 8
+script = ExtResource( 4 )
+
+[node name="Top" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2( 512, 232 )
+shape = SubResource( 1 )
+
+[node name="Left" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2( -32, 374 )
+shape = SubResource( 2 )
+
+[node name="Right" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2( 1056, 374 )
+shape = SubResource( 3 )
+
+[node name="Bottom" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2( 512, 632 )
+shape = SubResource( 4 )
+
+[node name="Stage" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enable = true
+
+[node name="StageTransform" type="Node2D" parent="Stage"]
+
+[node name="TileStrip" parent="Stage/StageTransform" instance=ExtResource( 3 )]
+
+[node name="TileStrip2" parent="Stage/StageTransform" instance=ExtResource( 3 )]
+position = Vector2( 1154, 0 )
+
+[node name="TileStrip3" parent="Stage/StageTransform" instance=ExtResource( 3 )]
+position = Vector2( 2304, 0 )
+
+[node name="TileStrip4" parent="Stage/StageTransform" instance=ExtResource( 3 )]
+position = Vector2( 3452, 0 )
+
+[node name="TileStrip5" parent="Stage/StageTransform" instance=ExtResource( 3 )]
+position = Vector2( 4600, 0 )
+
+[node name="stuff_tile4" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 1296, 80 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="stuff_tile3" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 1296, 208 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="stuff_tile1" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( -144, 224 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="stuff_tile2" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 2, 184 )
+texture = ExtResource( 7 )
+
+[node name="stuff_tile5" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 1424, 80 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="stuff_tile6" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 1424, 208 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="stuff_tile7" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 1552, 80 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="stuff_tile8" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 1552, 208 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="stuff_tile9" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 1006, 80 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="stuff_tile10" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 1006, 208 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="stuff_tile11" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 2094, 208 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="stuff_tile12" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 2400, 80 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="stuff_tile13" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 2400, 208 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="birdhouse" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 1312, 192 )
+texture = SubResource( 5 )
+
+[node name="stuff_cw" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 848, 160 )
+texture = ExtResource( 8 )
+
+[node name="trashcan" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 1152, 320 )
+texture = ExtResource( 22 )
+
+[node name="stuff_humberto" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 952, 272 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="shadow" type="Sprite" parent="Stage/StageTransform/stuff_humberto"]
+show_behind_parent = true
+position = Vector2( 16, -12 )
+scale = Vector2( 1.25, 1 )
+texture = ExtResource( 1 )
+
+[node name="stuff_bdgr" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 336, 224 )
+texture = ExtResource( 9 )
+
+[node name="stuff_ant" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 232, 336 )
+texture = SubResource( 6 )
+
+[node name="forsale" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 1513, 287 )
+texture = SubResource( 7 )
+
+[node name="movieposter" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 1688, 240 )
+texture = SubResource( 8 )
+
+[node name="nghq" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 1980, 239 )
+texture = ExtResource( 23 )
+
+[node name="srpb" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 2416, 128 )
+texture = ExtResource( 24 )
+
+[node name="animsign" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 2808, 120 )
+texture = SubResource( 9 )
+
+[node name="cockvid" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 2248, 328 )
+texture = SubResource( 10 )
+
+[node name="animsign2" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 3256, 120 )
+texture = SubResource( 11 )
+
+[node name="animsign3" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 3709, 120 )
+texture = SubResource( 9 )
+
+[node name="stuff_tile14" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 4570, 80 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="stuff_tile15" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 4570, 208 )
+texture = ExtResource( 7 )
+offset = Vector2( 146, 88 )
+
+[node name="papa" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 5138, 183 )
+texture = ExtResource( 36 )
+
+[node name="lp" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 4528, 183 )
+texture = ExtResource( 35 )
+
+[node name="culos" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 4138, 222 )
+texture = ExtResource( 32 )
+
+[node name="arti" type="Sprite" parent="Stage/StageTransform"]
+position = Vector2( 3997, 120 )
+texture = SubResource( 19 )
+
+[node name="Anim" type="AnimationPlayer" parent="Stage"]
+autoplay = "FadeIn"
+anims/FadeIn = SubResource( 12 )
+anims/FadeOut = SubResource( 13 )
+anims/Flash = SubResource( 14 )
+anims/Shake0 = SubResource( 15 )
+anims/Shake1 = SubResource( 16 )
+
+[node name="AssetStatic" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="Sky" type="TextureRect" parent="AssetStatic"]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="StageMusic" type="AudioStreamPlayer" parent="AssetStatic"]
+stream = ExtResource( 17 )
+autoplay = true
+script = ExtResource( 18 )
+
+[node name="AssetParallax" type="ParallaxBackground" parent="."]
+
+[node name="Sun" type="ParallaxLayer" parent="AssetParallax"]
+motion_scale = Vector2( 0.05, 1 )
+
+[node name="NewgroundsFace" type="Sprite" parent="AssetParallax/Sun"]
+modulate = Color( 1, 1, 1, 0.501961 )
+material = SubResource( 17 )
+position = Vector2( 310, 80 )
+texture = SubResource( 18 )
+
+[node name="Back" type="ParallaxLayer" parent="AssetParallax"]
+visible = false
+motion_scale = Vector2( 0.5, 1 )
+
+[node name="TileStrip3" parent="AssetParallax/Back" instance=ExtResource( 3 )]
+position = Vector2( 968, -176 )
+
+[node name="TileStrip4" parent="AssetParallax/Back" instance=ExtResource( 3 )]
+position = Vector2( 0, -176 )
+
+[node name="TileStrip5" parent="AssetParallax/Back" instance=ExtResource( 3 )]
+position = Vector2( -1152, -176 )
+
+[node name="TileStrip6" parent="AssetParallax/Back" instance=ExtResource( 3 )]
+position = Vector2( 2120, -176 )
+
+[node name="TileStrip7" parent="AssetParallax/Back" instance=ExtResource( 3 )]
+position = Vector2( 3272, -176 )
+
+[node name="TileStrip8" parent="AssetParallax/Back" instance=ExtResource( 3 )]
+position = Vector2( 4422, -176 )
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Overlay" type="ColorRect" parent="Overlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Tango" parent="." instance=ExtResource( 13 )]
+position = Vector2( 144, 381 )
+
+[node name="Lebipi" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1184, 184 )
+
+[node name="Sneki" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2470, 368 )
+
+[node name="Guau" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1184, 350 )
+
+[node name="Guau2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1224, 446 )
+
+[node name="Arcilla" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1506, 360 )
+
+[node name="Sofi" parent="." instance=ExtResource( 31 )]
+position = Vector2( 1892, 368 )
+
+[node name="Sofi2" parent="." instance=ExtResource( 31 )]
+position = Vector2( 2000, 436 )
+
+[node name="Sofi3" parent="." instance=ExtResource( 31 )]
+position = Vector2( 2064, 312 )
+
+[node name="Sneki2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2842, 414 )
+
+[node name="Guau3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 2682, 434 )
+
+[node name="Arcilla2" parent="." instance=ExtResource( 20 )]
+position = Vector2( 3224, 429 )
+
+[node name="Arcilla3" parent="." instance=ExtResource( 20 )]
+position = Vector2( 3130, 286 )
+
+[node name="Arcilla4" parent="." instance=ExtResource( 20 )]
+position = Vector2( 3408, 344 )
+
+[node name="Lebipi2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2808, 112 )
+
+[node name="cahb" type="StaticBody2D" parent="."]
+position = Vector2( 4256, 424 )
+script = ExtResource( 34 )
+offset = -48
+
+[node name="cah" type="Sprite" parent="cahb"]
+texture = ExtResource( 33 )
+
+[node name="hbox" type="CollisionShape2D" parent="cahb"]
+position = Vector2( 0, 64 )
+shape = SubResource( 20 )
+
+[node name="shadow" type="Sprite" parent="cahb"]
+show_behind_parent = true
+position = Vector2( 80, -50 )
+scale = Vector2( 2.5, 1 )
+texture = ExtResource( 1 )
+
+[node name="Sofi4" parent="." instance=ExtResource( 31 )]
+position = Vector2( 3680, 314 )
+
+[node name="Sofi5" parent="." instance=ExtResource( 31 )]
+position = Vector2( 3648, 368 )
+
+[node name="Sofi6" parent="." instance=ExtResource( 31 )]
+position = Vector2( 3728, 290 )
+
+[node name="Sofi7" parent="." instance=ExtResource( 31 )]
+position = Vector2( 3682.5, 455 )
+
+[node name="Sofi8" parent="." instance=ExtResource( 31 )]
+position = Vector2( 3650, 419 )
+
+[node name="Sofi9" parent="." instance=ExtResource( 31 )]
+position = Vector2( 3736, 472 )
+
+[node name="Sneki3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3936, 312 )
+
+[node name="Sneki4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3880, 390 )
+
+[node name="Sneki5" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3950, 471 )
+
+[node name="CarTop" type="CanvasLayer" parent="."]
+layer = 3
+follow_viewport_enable = true
+
+[node name="Arcilla5" parent="CarTop" instance=ExtResource( 20 )]
+position = Vector2( 4312, 258 )
+
+[node name="Guau4" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4528, 301 )
+
+[node name="Guau5" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4416, 416 )
+
+[node name="Guau6" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4280, 500 )
+
+[node name="Guau7" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4704, 306 )
+
+[node name="Guau8" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4592, 421 )
+
+[node name="Guau9" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4456, 505 )
+
+[node name="Guau10" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4872, 302 )
+
+[node name="Guau11" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4760, 417 )
+
+[node name="Guau12" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4624, 501 )
+
+[node name="Arcilla5" parent="." instance=ExtResource( 20 )]
+position = Vector2( 5198, 322 )
+
+[node name="Arcilla6" parent="." instance=ExtResource( 20 )]
+position = Vector2( 5040, 301 )
+
+[node name="Arcilla7" parent="." instance=ExtResource( 20 )]
+position = Vector2( 5192, 441 )
+
+[node name="Arcilla8" parent="." instance=ExtResource( 20 )]
+position = Vector2( 5040, 493 )
+
+[node name="Lebipi3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4016, 112 )
+
+[node name="Lebipi4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 5516, 60 )

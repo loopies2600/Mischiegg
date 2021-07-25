@@ -1,0 +1,202 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://sprites/guau/guau.png" type="Texture" id=1]
+[ext_resource path="res://sprites/tango/shadow.tres" type="Texture" id=2]
+[ext_resource path="res://scripts/guau.gd" type="Script" id=3]
+[ext_resource path="res://sprites/guau/guau_die.png" type="Texture" id=4]
+[ext_resource path="res://shaders/globalmat.tres" type="Material" id=5]
+[ext_resource path="res://sprites/guau/guau_bark0.png" type="Texture" id=6]
+[ext_resource path="res://sprites/guau/guau_bark1.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 64 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48, 8 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Bark"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -32, 24 ), Vector2( -32, 28 ), Vector2( -32, 24 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GFX/MainSprite:scale")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 1.25 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:rotation_degrees")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 15.0, 30.0, 45.0, 60.0, 75.0, 90.0, 105.0, 120.0, 135.0, 150.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:scale")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 0.95 ), Vector2( 1.025, 0.975 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -32, 24 ), Vector2( -32, 28 ), Vector2( -32, 26 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GFX/MainSprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Prep"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:scale")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.25, 0.75 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GFX/MainSprite:position")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -32, 24 ), Vector2( -32, 48 ) ]
+}
+
+[node name="Guau" type="KinematicBody2D" groups=[
+"Enemy",
+]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 3 )
+
+[node name="Shadow" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="GFX" type="Node2D" parent="."]
+material = ExtResource( 5 )
+
+[node name="MainSprite" type="Sprite" parent="GFX"]
+use_parent_material = true
+position = Vector2( -32, 24 )
+texture = ExtResource( 7 )
+
+[node name="HitArea" type="Area2D" parent="GFX"]
+collision_layer = 2
+
+[node name="Hitbox" type="CollisionShape2D" parent="GFX/HitArea"]
+position = Vector2( -48, 32 )
+shape = SubResource( 1 )
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2( -32, 112 )
+shape = SubResource( 2 )
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+anims/Bark = SubResource( 3 )
+anims/Die = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/Prep = SubResource( 6 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+rect = Rect2( -128, -10, 20, 20 )
+process_parent = true
+physics_process_parent = true

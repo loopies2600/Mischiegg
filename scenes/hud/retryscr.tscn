@@ -1,0 +1,117 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://font/main.font" type="BitmapFont" id=1]
+[ext_resource path="res://font/main.png" type="Texture" id=2]
+[ext_resource path="res://scenes/hud/retryscr.gd" type="Script" id=3]
+[ext_resource path="res://streams/music/gameover.ogg" type="AudioStream" id=4]
+
+[sub_resource type="BitmapFont" id=1]
+textures = [ ExtResource( 2 ) ]
+chars = PoolIntArray( 64, 0, 64, 288, 32, 48, 0, 0, 32, 120, 0, 224, 240, 32, 48, 0, 0, 32, 112, 0, 224, 192, 32, 48, 0, 0, 32, 104, 0, 224, 144, 32, 48, 0, 0, 32, 56, 0, 0, 96, 32, 48, 0, 0, 32, 48, 0, 0, 48, 32, 48, 0, 0, 32, 32, 0, 0, 0, 32, 48, 0, 0, 32, 121, 0, 0, 288, 32, 48, 0, 0, 32, 113, 0, 0, 240, 32, 48, 0, 0, 32, 105, 0, 0, 192, 32, 48, 0, 0, 32, 97, 0, 0, 144, 32, 48, 0, 0, 32, 57, 0, 32, 96, 32, 48, 0, 0, 32, 49, 0, 32, 48, 32, 48, 0, 0, 32, 33, 0, 32, 0, 32, 48, 0, 0, 32, 122, 0, 32, 288, 32, 48, 0, 0, 32, 114, 0, 32, 240, 32, 48, 0, 0, 32, 106, 0, 32, 192, 32, 48, 0, 0, 32, 98, 0, 32, 144, 32, 48, 0, 0, 32, 50, 0, 64, 48, 32, 48, 0, 0, 32, 58, 0, 96, 0, 32, 48, 0, 0, 32, 35, 0, 96, 288, 32, 48, 0, 0, 32, 115, 0, 64, 240, 32, 48, 0, 0, 32, 107, 0, 64, 192, 32, 48, 0, 0, 32, 99, 0, 64, 144, 32, 48, 0, 0, 32, 51, 0, 96, 48, 32, 48, 0, 0, 32, 116, 0, 96, 240, 32, 48, 0, 0, 32, 108, 0, 96, 192, 32, 48, 0, 0, 32, 100, 0, 96, 144, 32, 48, 0, 0, 32, 52, 0, 128, 48, 32, 48, 0, 0, 32, 44, 0, 160, 0, 32, 48, 0, 0, 32, 117, 0, 128, 240, 32, 48, 0, 0, 32, 109, 0, 128, 192, 32, 48, 0, 0, 32, 101, 0, 128, 144, 32, 48, 0, 0, 32, 53, 0, 160, 48, 32, 48, 0, 0, 32, 118, 0, 160, 240, 32, 48, 0, 0, 32, 110, 0, 160, 192, 32, 48, 0, 0, 32, 102, 0, 160, 144, 32, 48, 0, 0, 32, 54, 0, 192, 48, 32, 48, 0, 0, 32, 46, 0, 128, 0, 32, 48, 0, 0, 32, 119, 0, 192, 240, 32, 48, 0, 0, 32, 111, 0, 192, 192, 32, 48, 0, 0, 32, 103, 0, 192, 144, 32, 48, 0, 0, 32, 55, 0, 224, 48, 32, 48, 0, 0, 32, 63, 0, 64, 0, 32, 48, 0, 0, 32 )
+height = 48.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Options:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="RetryScreen" type="CanvasLayer"]
+layer = 4
+script = ExtResource( 3 )
+
+[node name="Label" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -198.0
+margin_right = 198.0
+margin_bottom = 128.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[wave amp=128]
+try again???"
+text = "
+try again???"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -256.0
+margin_top = 128.0
+margin_right = 256.0
+margin_bottom = 192.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[color=yellow]y[color=white]es           [color=yellow]n[color=white]o"
+text = "yes           no"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+autoplay = "FadeIn"
+anims/FadeIn = SubResource( 2 )
+anims/FadeOut = SubResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true

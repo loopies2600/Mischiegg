@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/eggpop-old1.wav-89948cd7ebe4bf6a887d666c7b3dd3dd.sample"
+
+[deps]
+
+source_file="res://streams/audio/eggpop-old1.wav"
+dest_files=[ "res://.import/eggpop-old1.wav-89948cd7ebe4bf6a887d666c7b3dd3dd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

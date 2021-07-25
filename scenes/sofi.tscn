@@ -1,0 +1,315 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://sprites/sofi/sofi2.png" type="Texture" id=1]
+[ext_resource path="res://shaders/globalmat.tres" type="Material" id=2]
+[ext_resource path="res://sprites/sofi/sofi3.png" type="Texture" id=3]
+[ext_resource path="res://sprites/sofi/yoyo2.png" type="Texture" id=4]
+[ext_resource path="res://sprites/tango/shadow.tres" type="Texture" id=5]
+[ext_resource path="res://scripts/sofi.gd" type="Script" id=6]
+[ext_resource path="res://sprites/sofi/sofi1.png" type="Texture" id=7]
+[ext_resource path="res://sprites/sofi/yoyo1.png" type="Texture" id=8]
+[ext_resource path="res://sprites/sofi/string.png" type="Texture" id=9]
+[ext_resource path="res://scripts/yoyo.gd" type="Script" id=10]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="AnimatedTexture" id=9]
+frames = 2
+fps = 30.0
+frame_0/texture = ExtResource( 8 )
+frame_1/texture = ExtResource( 4 )
+frame_1/delay_sec = 0.0
+
+[sub_resource type="RectangleShape2D" id=10]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 32, 8 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Attack"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -32, 64 ), Vector2( -32, 76 ), Vector2( -32, 72 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GFX/MainSprite:scale")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 1.25 ), Vector2( 1, 1 ), Vector2( 0.75, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GFX/Yoyo:visible")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GFX/YoyoString:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GFX/Yoyo:position")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.5, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -88, 88 ), Vector2( -144, 88 ), Vector2( -160, 88 ), Vector2( -168, 88 ), Vector2( -168, 88 ), Vector2( -160, 88 ), Vector2( -112, 88 ), Vector2( -40, 88 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("GFX/YoyoString:position")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.5, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -47.75, 88 ), Vector2( -72, 88 ), Vector2( -81.875, 88 ), Vector2( -88, 88 ), Vector2( -60, 88 ), Vector2( -30, 88 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("GFX/YoyoString:scale")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 32.25, 1 ), Vector2( 60.25, 1 ), Vector2( 72, 1 ), Vector2( 44, 1 ), Vector2( 14, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:rotation_degrees")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 15.0, 30.0, 45.0, 60.0, 75.0, 90.0, 105.0, 120.0, 135.0, 150.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:scale")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 0.95 ), Vector2( 1.025, 0.975 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -32, 72 ), Vector2( -32, 74 ), Vector2( -32, 73 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GFX/MainSprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GFX/YoyoString:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GFX/Yoyo:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Prep"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:scale")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.25, 0.75 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GFX/MainSprite:position")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -32, 72 ), Vector2( -32, 84 ) ]
+}
+
+[node name="Sofi" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 6 )
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( -8, 56 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="GFX" type="Node2D" parent="."]
+material = ExtResource( 2 )
+
+[node name="MainSprite" type="Sprite" parent="GFX"]
+use_parent_material = true
+position = Vector2( -32, 72 )
+texture = ExtResource( 7 )
+
+[node name="HitArea" type="Area2D" parent="GFX"]
+collision_layer = 2
+
+[node name="Hitbox" type="CollisionShape2D" parent="GFX/HitArea"]
+position = Vector2( -16, 64 )
+shape = SubResource( 7 )
+
+[node name="YoyoString" type="Sprite" parent="GFX"]
+visible = false
+position = Vector2( -47.75, 88 )
+scale = Vector2( 32.25, 1 )
+texture = ExtResource( 9 )
+
+[node name="Yoyo" type="Sprite" parent="GFX"]
+visible = false
+position = Vector2( -88, 88 )
+texture = SubResource( 9 )
+
+[node name="Hurtbox" type="Area2D" parent="GFX/Yoyo"]
+script = ExtResource( 10 )
+
+[node name="Box" type="CollisionShape2D" parent="GFX/Yoyo/Hurtbox"]
+shape = SubResource( 10 )
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2( -16, 112 )
+shape = SubResource( 8 )
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+anims/Attack = SubResource( 3 )
+anims/Die = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/Prep = SubResource( 6 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+rect = Rect2( -64, 32, 20, 20 )
+process_parent = true
+physics_process_parent = true

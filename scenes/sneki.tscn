@@ -1,0 +1,403 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://scripts/sneki.gd" type="Script" id=1]
+[ext_resource path="res://sprites/sneki/sneki1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/sneki/sneki5.png" type="Texture" id=3]
+[ext_resource path="res://sprites/sneki/sneki4.png" type="Texture" id=4]
+[ext_resource path="res://sprites/tango/tango_egg_dizzy4.png" type="Texture" id=5]
+[ext_resource path="res://sprites/sneki/sneki3.png" type="Texture" id=6]
+[ext_resource path="res://shaders/globalmat.tres" type="Material" id=7]
+[ext_resource path="res://sprites/tango/shadow.tres" type="Texture" id=8]
+[ext_resource path="res://sprites/sneki/sneki6.png" type="Texture" id=9]
+[ext_resource path="res://sprites/sneki/sneki2.png" type="Texture" id=10]
+[ext_resource path="res://sprites/tango/tango_egg_dizzy2.png" type="Texture" id=11]
+[ext_resource path="res://sprites/tango/tango_egg_dizzy3.png" type="Texture" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 64 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48, 8 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Attack"
+length = 0.05
+loop = true
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.025 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -32, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GFX/Egg:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GFX/MainSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:rotation_degrees")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 15.0, 30.0, 45.0, 60.0, 75.0, 90.0, 105.0, 120.0, 135.0, 150.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GFX/Egg:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Dizzy"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:texture")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ), ExtResource( 6 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GFX/MainSprite:scale")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 0.95 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GFX/Egg:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GFX/Egg:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:scale")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 0.95 ), Vector2( 1.025, 0.975 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 4 ), Vector2( 0, 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GFX/MainSprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GFX/Egg:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 56 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GFX/MainSprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GFX/Egg:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("GFX/MainSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GFX/MainSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GFX/MainSprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GFX/Egg:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="Sneki" type="KinematicBody2D" groups=[
+"Enemy",
+]]
+script = ExtResource( 1 )
+
+[node name="Shadow" type="Sprite" parent="."]
+texture = ExtResource( 8 )
+
+[node name="GFX" type="Node2D" parent="."]
+material = ExtResource( 7 )
+
+[node name="MainSprite" type="Sprite" parent="GFX"]
+use_parent_material = true
+texture = ExtResource( 2 )
+
+[node name="Egg" type="Sprite" parent="GFX"]
+visible = false
+use_parent_material = true
+position = Vector2( -32, 0 )
+texture = ExtResource( 11 )
+
+[node name="HitArea" type="Area2D" parent="GFX"]
+collision_layer = 2
+
+[node name="Hitbox" type="CollisionShape2D" parent="GFX/HitArea"]
+position = Vector2( -48, 32 )
+shape = SubResource( 1 )
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2( -32, 112 )
+shape = SubResource( 2 )
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+anims/Attack = SubResource( 3 )
+anims/Die = SubResource( 4 )
+anims/Dizzy = SubResource( 5 )
+anims/Idle = SubResource( 6 )
+anims/Prep = SubResource( 7 )
+anims/Walk = SubResource( 8 )
+
+[node name="LeftRay" type="RayCast2D" parent="."]
+position = Vector2( -96, 0 )
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 64 )
+collision_mask = 8
+
+[node name="RightRay" type="RayCast2D" parent="."]
+rotation = 4.71239
+enabled = true
+cast_to = Vector2( 0, 64 )
+collision_mask = 8
+
+[node name="UpRay" type="RayCast2D" parent="."]
+position = Vector2( -48, -96 )
+rotation = 3.14159
+enabled = true
+cast_to = Vector2( 0, 64 )
+collision_mask = 8
+
+[node name="DownRay" type="RayCast2D" parent="."]
+position = Vector2( -48, 128 )
+enabled = true
+cast_to = Vector2( 0, 64 )
+collision_mask = 8
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+rect = Rect2( 0, -10, 20, 20 )
+process_parent = true
+physics_process_parent = true
